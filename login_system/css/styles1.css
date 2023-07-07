@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+body,
+button {
+  font-family: "Inter", sans-serif;
+}
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+}
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+.navbar-brand{
+    background-color: rgb(255, 98, 0);
+}
+.xyz2{
+  flex: 0 0 auto;
+  width: 26%;
+  margin-left: 868px;
+  margin-top: -262px;
+  padding-bottom: 20px;
+}
+.xyz1{
+  flex: 0 0 auto;
+  width: 26%;
+  margin-left: 573px;
+  margin-top: -242.6px;
+  padding-bottom: 39px;
+}
+.xyz{
+  flex: 0 0 auto;
+  width: 26%;
+  margin-left: 280px;
+  margin-top: -223px;
+  padding-bottom: 20px;
+}
+.row{
+  margin-top: 20px;
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+.sidebar-link .right-icon {
+  display: inline-flex;
+  transition: all ease 0.25s;
+}
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+  .sidebar-nav {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible !important;
+    height: calc(100% - var(--topNavbarHeight));
+    top: var(--topNavbarHeight);
+  }
+}
