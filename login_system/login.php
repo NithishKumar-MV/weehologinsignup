@@ -40,10 +40,11 @@ if (isset($_POST['submit'])) {
 
                 // Redirect to the user's dashboard or any other page
                 header("Location: ./dashboard.html");
-                exit();
+                exit;
             } else {
                 // Password is incorrect
                 $error = "Invalid password.";
+                
             }
         } else {
             // No user found with the given username
