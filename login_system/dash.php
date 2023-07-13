@@ -102,7 +102,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="load()">
     <!-- Navigation Bar -->
     <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
@@ -171,7 +171,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Total Events</h5>
-                                        <p class="card-text"><?php  echo $total_events->total_events; ?></p>
+                                        <p class="card-text" id='0101'>10</p>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Total Events in this Month</h5>
-                                        <p class="card-text"><?php echo $Total_Events_in_this_Month->Total_Events_in_this_Month; ?></p>
+                                        <p class="card-text" id='0102'>10</p>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Completed Events</h5>
-                                        <p class="card-text"><?php echo $Completed_Events->Completed_Events; ?></p>
+                                        <p class="card-text" id='0103'>10</p>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Pending Events</h5>
-                                        <p class="card-text"><?php echo $Pending_Events->Pending_Events; ?></p>
+                                        <p class="card-text" id='0104'>10</p>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Events in this week</h5>
-                                        <p class="card-text"><?php echo $Events_in_this_week->Events_in_this_week; ?></p>
+                                        <p class="card-text" id='0105'>10</p>
                                     </div>
                                 </div>
                             </div>
@@ -496,6 +496,50 @@
 </div>
         </div>
     </div>
+    <script>
+      function animate(obj, initVal, lastVal, duration) {
+         let startTime = null;
+
+      //get the current timestamp and assign it to the currentTime variable
+      let currentTime = Date.now();
+
+      //pass the current timestamp to the step function
+      const step = (currentTime ) => {
+
+      //if the start time is null, assign the current time to startTime
+      if (!startTime) {
+         startTime = currentTime ;
+      }
+
+      //calculate the value to be used in calculating the number to be displayed
+      const progress = Math.min((currentTime - startTime)/ duration, 1);
+
+      //calculate what to be displayed using the value gotten above
+      obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+
+      //checking to make sure the counter does not exceed the last value (lastVal)
+      if (progress < 1) {
+         window.requestAnimationFrame(step);
+      } else {
+            window.cancelAnimationFrame(window.requestAnimationFrame(step));
+         }
+      };
+      //start animating
+         window.requestAnimationFrame(step);
+      }
+      let text1 = document.getElementById('0101');
+      let text2 = document.getElementById('0102');
+      let text3 = document.getElementById('0103');
+      let text4 = document.getElementById('0104');
+      let text5 = document.getElementById('0105');
+      const load = () => {
+         animate(text1, 0,<?php  echo $total_events->total_events; ?>, 1000);
+         animate(text2, 0,<?php echo $Total_Events_in_this_Month->Total_Events_in_this_Month; ?>, 1000);
+         animate(text3, 0,<?php echo $Completed_Events->Completed_Events; ?>, 1000);
+         animate(text4, 0,<?php echo $Pending_Events->Pending_Events; ?>, 1000);
+         animate(text5, 0,<?php echo $Events_in_this_week->Events_in_this_week; ?>,1000);         
+      }
+   </script>
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
