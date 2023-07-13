@@ -171,7 +171,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Total Events</h5>
-                                        <p class="card-text"><?php $row = mysqli_fetch_assoc($result); echo $row['total_events']; ?></p>
+                                        <p class="card-text"><?php  echo $total_events->total_events; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Total Events in this Month</h5>
-                                        <p class="card-text"><?php $row = mysqli_fetch_assoc($result); echo $row['total_events']; ?></p>
+                                        <p class="card-text"><?php echo $Total_Events_in_this_Month->Total_Events_in_this_Month; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -189,7 +189,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Completed Events</h5>
-                                        <p class="card-text"><?php $row = mysqli_fetch_assoc($result); echo $row['total_events']; ?></p>
+                                        <p class="card-text"><?php echo $Completed_Events->Completed_Events; ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,16 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Pending Events</h5>
-                                        <p class="card-text"><?php $row = mysqli_fetch_assoc($result); echo $row['total_events']; ?></p>
+                                        <p class="card-text"><?php echo $Pending_Events->Pending_Events; ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Events in this week</h5>
+                                        <p class="card-text"><?php echo $Events_in_this_week->Events_in_this_week; ?></p>
                                     </div>
                                 </div>
                             </div>
