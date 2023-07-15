@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION["uname"] = $row["uname"];
 
                 // Redirect to the user's dashboard or any other page
-                header("Location: ./dash.php");
+                header("Location: ./dashboard.php");
                 exit();
             } else {
                 // Password is incorrect

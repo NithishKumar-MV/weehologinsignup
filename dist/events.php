@@ -42,4 +42,7 @@ $Pending_Events = mysqli_fetch_object($res);
 $Events_in_this_week ="SELECT `Events_in_this_week` FROM `events`limit $t,$count";
 $ab = mysqli_query($conn,$Events_in_this_week);
 $Events_in_this_week = mysqli_fetch_object($ab);
+
+
 ?>
+
