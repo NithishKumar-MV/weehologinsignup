@@ -1,0 +1,120 @@
+        :root {
+            --main-bg-color: #9b0000;
+            --main-text-color: #ad1e01;
+            --second-text-color: #ffffff;
+            --second-bg-color: #ff9090;
+        }
+
+        body {
+            background-image:  url(images/dashbackGimg.jpg);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo {
+            width: 190px;
+            margin-bottom: 1px;
+        }
+        
+        .primary-text {
+            color: var(--main-text-color);
+        }
+        
+        .whitebg {
+            --bs-bg-opacity: 1;
+            height: 810px;
+            background-color: rgba(var(--bs-white-rgb),var(--bs-bg-opacity))!important;
+        }
+
+        .second-text {
+            color: var(--second-text-color);
+        }
+
+        a{
+            margin-top: 20px;
+        }
+
+        .primary-bg {
+            background-color: var(--main-bg-color);
+        }
+
+        #mleft{
+            margin-left: 20px;
+        }
+
+        .secondary-bg {
+            background-color: var(--second-bg-color);
+        }
+        
+        .dashboard-heading {
+            color: white;
+        }
+        
+
+        .rounded-full {
+            border-radius: 100%;
+        }
+
+        #wrapper {
+            overflow-x: hidden;
+        }
+
+        #sidebar-wrapper {
+            min-height: 100vh;
+            margin-left: -15rem;
+            transition: margin 0.25s ease-out;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        #sidebar-wrapper .list-group {
+            min-width: 100vw;
+        }
+
+        #page-content-wrapper {
+            min-width: 100vw;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+            margin-left: 0;
+        }
+
+        #menu-toggle {
+            margin-left: 0;
+            cursor: pointer;
+        }
+
+        .list-group-item {
+            padding: 10px 30px; /* Adjust the padding as needed */
+            margin-bottom: 1px; /* Adjust the margin as needed */
+            color: #fff; /* Set the text color */
+            background-color: #797979; /* Set the background color */
+            font-weight: bold;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .list-group-item i {
+            margin-right: 10px;
+        }        
+
+        @media (min-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: 0;
+            }
+
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+            }
+
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: -15rem;
+            }
+        }
