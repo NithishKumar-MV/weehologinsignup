@@ -22,7 +22,6 @@
       ?>
   </head>
   <body>
-  <?php  echo $a; ?>
     <style>
       body {
         background-image: url("images/backGimg.jpg");
