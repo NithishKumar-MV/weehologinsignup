@@ -21,29 +21,9 @@
       <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark active" onclick="toggleDropdown('eventDropdown')">
         <i class="fas fa-tachometer-alt me-2"></i> Dashboard
       </a>
-      <a href="#" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold" onclick="toggleDropdown('eventDropdown')">
+      <a href="form2.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
         <i class="fas fa-calendar-plus me-2"></i> Book an Event
       </a>
-      <ul id="eventDropdown" class="list-group sub-menu">
-        <li class="list-group-item">
-            <a href="#" class="dropdown-item fw-bold"><i class="fas fa-birthday-cake"></i> Personal Parties</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="dropdown-item fw-bold"><i class="fas fa-ring"></i> Personal Ceremony</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="dropdown-item fw-bold"><i class="fas fa-building"></i> Corporate Parties</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="dropdown-item fw-bold"><i class="fas fa-flag"></i> Corporate Celebration</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="dropdown-item fw-bold"><i class="fas fa-users"></i> MICE Events</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#" class="dropdown-item text-primary fw-bold"><i class="fas fa-ellipsis-h"></i> Others..</a>
-          </li>          
-      </ul>
       <a href="#" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
         <i class="fas fa-calendar-plus me-2"></i>Create an Event
       </a>
