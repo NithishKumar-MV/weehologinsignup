@@ -7,8 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Weeho Dashboard</title>
+    <?php  include("events.php"); ?>
 </head>
-<body>
+<body onload="load()">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar starts here -->
 <div class="whitebg">
@@ -86,7 +87,7 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">20</h3>
+                                    <h3 class="fs-2" id="0101">10</h3>
                                     <p class="fs-5">Total Events</p>
                                 </div>
                                 <i class="fas fa-calendar-alt fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -96,7 +97,7 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">5</h3>
+                                    <h3 class="fs-2" id="0102">5</h3>
                                     <p class="fs-5">Total Events in this Month</p>
                                 </div>
                                 <i class="fas fa-calendar fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -106,7 +107,7 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">12</h3>
+                                    <h3 class="fs-2" id="0103">12</h3>
                                     <p class="fs-5">Completed Events</p>
                                 </div>
                                 <i class="fas fa-check-circle fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -116,7 +117,7 @@
                         <div class="col-md-3">
                             <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                 <div>
-                                    <h3 class="fs-2">8</h3>
+                                    <h3 class="fs-2" id="0104">8</h3>
                                     <p class="fs-5">Pending Events</p>
                                 </div>
                                 <i class="fas fa-exclamation-circle fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -127,6 +128,50 @@
             </div>
         </div>
     </div>
+
+    //animated counter
+    <script>
+        function animate(obj, initVal, lastVal, duration) {
+           let startTime = null;
+  
+        //get the current timestamp and assign it to the currentTime variable
+        let currentTime = Date.now();
+  
+        //pass the current timestamp to the step function
+        const step = (currentTime ) => {
+  
+        //if the start time is null, assign the current time to startTime
+        if (!startTime) {
+           startTime = currentTime ;
+        }
+  
+        //calculate the value to be used in calculating the number to be displayed
+        const progress = Math.min((currentTime - startTime)/ duration, 1);
+  
+        //calculate what to be displayed using the value gotten above
+        obj.innerHTML = Math.floor(progress * (lastVal - initVal) + initVal);
+  
+        //checking to make sure the counter does not exceed the last value (lastVal)
+        if (progress < 1) {
+           window.requestAnimationFrame(step);
+        } else {
+              window.cancelAnimationFrame(window.requestAnimationFrame(step));
+           }
+        };
+        //start animating
+           window.requestAnimationFrame(step);
+        }
+        let text1 = document.getElementById('0101');
+        let text2 = document.getElementById('0102');
+        let text3 = document.getElementById('0103');
+        let text4 = document.getElementById('0104');
+        const load = () => {
+           animate(text1, 0,<?php  echo $total_events->total_events; ?>, 1000);
+           animate(text2, 0,<?php echo $Total_Events_in_this_Month->Total_Events_in_this_Month; ?>, 1000);
+           animate(text3, 0,<?php echo $Completed_Events->Completed_Events; ?>, 1000);
+           animate(text4, 0,<?php echo $Pending_Events->Pending_Events; ?>, 1000);         
+        }
+     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
