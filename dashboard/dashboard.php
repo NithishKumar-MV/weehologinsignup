@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Weeho Dashboard</title>
+    <?php session_start(); ?>
     <?php  include("events.php"); ?>
 </head>
 <body onload="load()">
@@ -48,12 +49,19 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item-dropitem">
                             <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i> User
+                                <i class="fas fa-user me-2"></i>
+                                <?php
+                                    if(isset($_SESSION["name"])) {
+                                ?>
+                                    <?php echo $_SESSION["name"]; ?>
+                                <?php
+                                    }else header("Location:login.php");
+                                ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-user"></i> Profile</a></li>
                                 <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-cog"></i> Settings</a></li>
-                                <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                <li><a href="logout.php" class="dropdown-item fw-bold"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 
                             </ul>
                         </li>
