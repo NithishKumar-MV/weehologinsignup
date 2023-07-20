@@ -41,13 +41,15 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item-dropitem">
                             <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i> User
+                                <i class="fas fa-user me-2"></i> <?php
+                                    if(isset($_SESSION["name"])) {
+                                ?>
+                                    <?php echo $_SESSION["name"]; ?>
+                                <?php
+                                    }else header("Location:login.php");
+                                ?>
+                                
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a href="profile.php" class="dropdown-item">Profile</a></li>
-                                <li><a href="#" class="dropdown-item">Settings</a></li>
-                                <li><a href="logout.php" class="dropdown-item">Logout</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>                

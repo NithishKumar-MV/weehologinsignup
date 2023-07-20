@@ -11,9 +11,13 @@
         $_SESSION["email"] = $row['email'];
         $_SESSION["phone"] = $row['phone'];
         $_SESSION["city"] = $row['city'];
+        if(isset($_SESSION["message"]))
+         unset($_SESSION["message"]); 
+
         } else {
          $message = "Invalid Username or Password!";
-         
+         $_SESSION["message"] =$message;
+         header("Location:login.php");
         }
     }
     if(isset($_SESSION["id"])) {

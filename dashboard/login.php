@@ -52,7 +52,11 @@
       <div class="form login">
         <div class="form-content">
           <header>Login</header>
+          
           <form action="loginb.php" method="POST">
+          <div style="color:white; text-align:centre">
+          <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; }  ?>
+          </div>
             <div class="field input-field">
               <input
                 type="text"
@@ -84,7 +88,7 @@
           <div class="form-link">
             <span
               >Already have an account?
-              <a href="sighnup.html" class="link signup-link">Signup</a></span
+              <a href="sighnup.php" class="link signup-link">Signup</a></span
             >
           </div>
         </div>
