@@ -59,7 +59,7 @@
                                 ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><a href="profile.php" class="dropdown-item fw-bold"><i class="fas fa-user"></i> Profile</a></li>
                                 <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-cog"></i> Settings</a></li>
                                 <li><a href="logout.php" class="dropdown-item fw-bold"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 
