@@ -8,7 +8,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/styles.css" />
     <title>Weeho Dashboard</title>
-    <?php session_start(); ?>
+    <?php include("conn.php"); session_start(); ?>
+    <style>
+      .alb{
+            width: 50px;
+			      height: 50px;
+			      padding: 5px;
+			      border-radius: 50%;
+        }
+        .alb img {
+			      width: 100%;
+			      height: 100%;
+			      border-radius: 50%;
+		    }
+    </style>
 </head>
 <body onload="load()">
     <style>
@@ -63,6 +76,22 @@
         <div class="form login">
           <div class="form-content">
             <header>Profile</header>
+              
+              <div class="field input-field">
+              <?php  
+                $result = mysqli_query($conn,"SELECT * FROM login_user WHERE email='" . $_SESSION["name"] . "'");
+                $row  = mysqli_fetch_assoc($result);
+                if($row['img_url'] != ""){ ?>
+                <div class="alb"><a href="profile_img.php">
+                <img src="images/<?=$row['img_url']?>" ></a>
+                </div>
+               <?php }else{ ?>
+                <div class="alb"><a href="profile_img.php">
+                <img src="images/blank.png" ></a>
+                </div>
+                <?php } ?>
+              </div>
+
               <div class="field input-field">
                 <h3 style="color:white;">Name: <?php if(isset($_SESSION["name"])) echo $_SESSION["name"]; else header("Location:login.php")?></h3>
               </div>
@@ -84,5 +113,6 @@
    
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    
     </body>
 </html>

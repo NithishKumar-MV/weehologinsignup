@@ -1,17 +1,5 @@
 <?php
-// MySQL database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "weeho";
-
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("conn.php");
 session_start();
 $name = $_REQUEST['name'];
 $phone = $_REQUEST['phone'];
