@@ -45,14 +45,16 @@ if (isset($_POST['submit'])) {
             } else {
                 // Password is incorrect
                 $error = "Invalid password.";
-                $a = 10;
-                echo '<script>alert("Welcome to Geeks for Geeks")</script>';
+               
+                
                 header("Location: ./login.php");
                 exit();
             }
         } else {
             // No user found with the given username
             $error = "User not found.";
+            header("Location: ./login.php");
+            exit();
         }
     }
 }

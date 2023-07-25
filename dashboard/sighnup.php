@@ -17,9 +17,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <?php
-      include("loginb.php");
-      ?>
+    <?php session_start(); ?>
   </head>
   <body>
     <style>
@@ -47,16 +45,47 @@
       }
       /* Additional styles as needed */
     </style>
+    
     <section class="container forms">
       <div class="form login">
         <div class="form-content">
           <header>Login</header>
-          <form action="loginb.php" method="POST">
+          <form action="sighnupb.php" method="POST">
+          <div style="color:white; text-align:centre">
+          <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; }  ?>
+          </div>
+            <div class="field input-field">
+              <input
+                type="text"
+                placeholder="Name"
+                name="name"
+                class="input"
+              />
+            </div>
+            
             <div class="field input-field">
               <input
                 type="text"
                 placeholder="Email"
-                name="uname"
+                name="email"
+                class="input"
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="text"
+                placeholder="phone number"
+                name="phone"
+                class="input"
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="text"
+                placeholder="City"
+                name="city"
                 class="input"
               />
             </div>
@@ -84,50 +113,6 @@
             <span
               >Already have an account?
               <a href="#" class="link signup-link">Signup</a></span
-            >
-          </div>
-        </div>
-
-        <div class="line"></div>
-      </div>
-
-      <!-- Signup Form -->
-
-      <div class="form signup">
-        <div class="form-content">
-          <header>Signup</header>
-          <form action="#">
-            <div class="field input-field">
-              <input type="email" placeholder="Email" class="input" />
-            </div>
-
-            <div class="field input-field">
-              <input
-                type="Create password"
-                placeholder="Create Password"
-                class="password"
-              />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
-
-            <div class="field input-field">
-              <input
-                type="Confirm password"
-                placeholder="Confirm Password"
-                class="password"
-              />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
-
-            <div class="field button-field">
-              <button type="button">Signup</button>
-            </div>
-          </form>
-
-          <div class="form-link">
-            <span
-              >Already have an account?
-              <a href="#" class="link login-link">Login</a></span
             >
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,12 +52,16 @@
       <div class="form login">
         <div class="form-content">
           <header>Login</header>
+          
           <form action="loginb.php" method="POST">
+          <div style="color:white; text-align:centre">
+          <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; }  ?>
+          </div>
             <div class="field input-field">
               <input
                 type="text"
                 placeholder="Email"
-                name="uname"
+                name="name"
                 class="input"
               />
             </div>
@@ -83,51 +88,7 @@
           <div class="form-link">
             <span
               >Already have an account?
-              <a href="#" class="link signup-link">Signup</a></span
-            >
-          </div>
-        </div>
-
-        <div class="line"></div>
-      </div>
-
-      <!-- Signup Form -->
-
-      <div class="form signup">
-        <div class="form-content">
-          <header>Signup</header>
-          <form action="#">
-            <div class="field input-field">
-              <input type="email" placeholder="Email" class="input" />
-            </div>
-
-            <div class="field input-field">
-              <input
-                type="Create password"
-                placeholder="Create Password"
-                class="password"
-              />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
-
-            <div class="field input-field">
-              <input
-                type="Confirm password"
-                placeholder="Confirm Password"
-                class="password"
-              />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
-
-            <div class="field button-field">
-              <button type="button">Signup</button>
-            </div>
-          </form>
-
-          <div class="form-link">
-            <span
-              >Already have an account?
-              <a href="#" class="link login-link">Login</a></span
+              <a href="sighnup.php" class="link signup-link">Signup</a></span
             >
           </div>
         </div>
