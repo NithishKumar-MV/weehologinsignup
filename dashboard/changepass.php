@@ -51,46 +51,34 @@
     <section class="container forms">
       <div class="form login">
         <div class="form-content">
-          <header>Login</header>
+          <header>change password</header>
           
-          <form action="loginb.php" method="POST">
+          <form action="changepassb.php" method="POST">
           <div style="color:white; text-align:centre">
           <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; }  ?>
           </div>
             <div class="field input-field">
               <input
                 type="text"
-                placeholder="Email"
-                name="name"
+                placeholder="password"
+                name="password"
                 class="input"
               />
             </div>
 
             <div class="field input-field">
               <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                class="password"
+                type="text"
+                placeholder="confirm password"
+                name="confirm_password"
+                class="input"
               />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
-
-            <div class="form-link">
-              <a href="forget.php" class="forgot-pass">Forgot password?</a>
             </div>
 
             <div class="field button-field">
-              <button type="submit" name="submit">Login</button>
+              <button type="submit" name="submit">verfify</button>
             </div>
           </form>
-
-          <div class="form-link">
-            <span
-              >Already have an account?
-              <a href="sighnup.php" class="link signup-link">Signup</a></span
-            >
-          </div>
         </div>
 
         <div class="line"></div>

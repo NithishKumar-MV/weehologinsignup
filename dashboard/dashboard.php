@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/profile.css">
     <title>Weeho Dashboard</title>
     <?php session_start(); ?>
     <?php  include("events.php"); ?>
@@ -59,7 +60,7 @@
                                 ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a href="profile.php" class="dropdown-item fw-bold"><i class="fas fa-user"></i> Profile</a></li>
+                                <li><button class="dropdown-item fw-bold" onclick="openpopup()"><i class="fas fa-user"></i> Profile</button></li>
                                 <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-cog"></i> Settings</a></li>
                                 <li><a href="logout.php" class="dropdown-item fw-bold"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 
@@ -116,8 +117,47 @@
             </div>
         </div>
     </div>
+    
+    <?php//profile popup?>
+    <div class="popup" id="popup">
+            <img src="images/backGimg.jpg">
+            <table>
+                <tr>
+                    <td>
+                        name:     
+                    </td>
+                    <td>
+                        shahid ali
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        email:
+                    </td>
+                    <td>
+                        asd@hkasd.com
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        phone:
+                    </td>
+                    <td>
+                        123456789
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        city:
+                    </td>
+                    <td>
+                        asdas
+                    </td>
+                </tr>
+            </table>
+    </div>
 
-    //animated counter
+    <?php //  animated counter ?> 
     <script>
         function animate(obj, initVal, lastVal, duration) {
            let startTime = null;
@@ -163,5 +203,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
+
 </body>
 </html>

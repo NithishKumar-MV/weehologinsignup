@@ -51,9 +51,9 @@
     <section class="container forms">
       <div class="form login">
         <div class="form-content">
-          <header>Login</header>
+          <header>forget password</header>
           
-          <form action="loginb.php" method="POST">
+          <form action="forgetb.php" method="POST">
           <div style="color:white; text-align:centre">
           <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; }  ?>
           </div>
@@ -61,36 +61,15 @@
               <input
                 type="text"
                 placeholder="Email"
-                name="name"
+                name="email"
                 class="input"
               />
             </div>
 
-            <div class="field input-field">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                class="password"
-              />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
-
-            <div class="form-link">
-              <a href="forget.php" class="forgot-pass">Forgot password?</a>
-            </div>
-
             <div class="field button-field">
-              <button type="submit" name="submit">Login</button>
+              <button type="submit" name="submit">otp send</button>
             </div>
           </form>
-
-          <div class="form-link">
-            <span
-              >Already have an account?
-              <a href="sighnup.php" class="link signup-link">Signup</a></span
-            >
-          </div>
         </div>
 
         <div class="line"></div>
