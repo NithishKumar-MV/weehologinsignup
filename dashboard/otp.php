@@ -1,81 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css" />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <?php
-      include("loginb.php");
-      ?>
-  </head>
-  <body>
-    <style>
-      body {
-        background-image: url("images/backGimg.jpg");
-        height: 100vh;
-        background-size: cover;
-        background-position: center;
-      }
-    </style>
-    <div id="logo-container">
-      <img src="images/Weeho.png" alt="Weeho logo" />
-    </div>
-    <style>
-      #logo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 20vh; /* Adjust as needed */
-      }
-
-      #logo {
-        width: 100px; /* Adjust as needed */
-        height: auto; /* Preserve the aspect ratio */
-      }
-      /* Additional styles as needed */
-    </style>
-    <section class="container forms">
-      <div class="form login">
-        <div class="form-content">
-          <header>otp verfiy</header>
-          
-          <form action="otpb.php" method="POST">
-          <div style="color:white; text-align:centre">
-          <?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; }  ?>
-          </div>
-            <div class="field input-field">
-              <input
-                type="text"
-                placeholder="otp"
-                name="otp"
-                class="input"
-              />
-            </div>
-
-            <div class="field button-field">
-              <button type="submit" name="submit">verfify</button>
-            </div>
-          </form>
+<head>
+    <meta charset="UTF-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP verification code through email</title>
+    <link rel="stylesheet" href="css/otp.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="images/Weeho.png" alt="Your Logo">
         </div>
-
-        <div class="line"></div>
-      </div>
-    </section>
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+        <header><i class="bx bxs-check-shield"></i></header>
+        <h2>Enter OTP Code</h2>
+        <form action="otpb.php" method="post" id="otpForm">
+            <div class="input-field">
+                <label for="input1"></label>
+                <input type="number" id="input1" maxlength="1" name="input1" onkeyup="moveToNext(this, 'input2')" />
+            
+                <label for="input2"></label>
+                <input type="number" id="input2" maxlength="1" name="input2" onkeyup="moveToNext(this, 'input3')" disabled />
+            
+                <label for="input3"></label>
+                <input type="number" id="input3" maxlength="1" name="input3" onkeyup="moveToNext(this, 'input4')" disabled />
+            
+                <label for="input4"></label>
+                <input type="number" id="input4" maxlength="1" name="input4" onkeyup="moveToNext(this, 'submit')" disabled />
+            </div><br>
+            <input type="submit" id="submit" class="btn solid" value="Verify OTP">
+        </form>
+    </div>
+    <script src="js/otp.js"></script>
+</body>
 </html>
