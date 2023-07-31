@@ -15,6 +15,6 @@
 	move_uploaded_file($tmp_name, $img_upload_path);
 	$sql = "UPDATE `login_user` SET `img_url`='$new_img_name' WHERE name ='".$_SESSION['name']."'";
 	mysqli_query($conn, $sql);
-    header("location:profile.php");
+    header("location: profile1.php");
 
 ?>
