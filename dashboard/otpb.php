@@ -1,13 +1,17 @@
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','weeho');
-$otp=$_REQUEST['otp'];
-$email=$_SESSION["email"];
-$res=mysqli_query($con,"select * from user where email='$email' and otp='$otp'");
-$count=mysqli_num_rows($res);
-if($count>0){
-	mysqli_query($con,"update user set otp='' where email='$email'");
-	$_SESSION["message"] = "";
+
+
+$input1 = $_REQUEST["input1"];
+$input2 = $_REQUEST["input2"];
+$input3 = $_REQUEST["input3"];
+$input4 = $_REQUEST["input4"];
+
+$otp = $input1*1000 + $input2*100 + $input3*10 + $input4;
+
+if($_SESSION["otp"] == $otp){
+    unset($_SESSION["otp"]);
     header("Location:changepass.php");
     exit();
 }else{
