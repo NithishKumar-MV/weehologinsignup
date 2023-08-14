@@ -7,8 +7,7 @@
     $count = mysqli_num_rows($result);
     $_SESSION["email"]=$email;
     $_SESSION["otp"] = $otp; 
-    if($count ==0){
-        
+    if($count ==0){    
         header("Location:forget.php");
         exit();
     }else{
