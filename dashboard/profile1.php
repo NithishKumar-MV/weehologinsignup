@@ -82,15 +82,11 @@
               <?php  
                 $result = mysqli_query($conn,"SELECT * FROM login_user WHERE email='" . $_SESSION["name"] . "'");
                 $row  = mysqli_fetch_assoc($result);
-                if($row['img_url'] != ""){ ?>
+                ?>
                 <div class="alb">
-                <img src="images/<?=$row['img_url']?>" onclick="openpopup()">
+                <img src="images/blank.png">
                 </div>
-               <?php }else{ ?>
-                <div class="alb">
-                <img src="images/blank.png" onclick="openpopup()">
-                </div>
-                <?php } ?>
+               
               </div>
 
               <div class="field input-field">
@@ -114,44 +110,6 @@
    
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
-      <div class="popup" id="popup">
-            <?php  
-                $result = mysqli_query($conn,"SELECT * FROM login_user WHERE email='" . $_SESSION["name"] . "'");
-                $row  = mysqli_fetch_assoc($result);
-                if($row['img_url'] != ""){ ?>
-                
-                <img src="images/<?=$row['img_url']?>" >
-                <table><tr><td>
-                <form action="delete.php" method="post">
-                <input type="submit" 
-                  name="submit"
-                  value="delete" onclick="closepopup()">
-                </form>
-                </td><td>
-                <form action="upload.php" method="post">
-                <input type="file" 
-                  name="my_image">
-                <input type="submit" 
-                  name="submit"
-                  value="change" onclick="closepopup()">
-                </form>
-              
-               <?php }else{ ?>
-                <table><tr>
-                <form action="upload.php" method="post" enctype="multipart/form-data">
-                <input type="file" 
-                  name="my_image">
-
-           <input type="submit" 
-                  name="submit"
-                  value="Upload" onclick="closepopup()">
-                </form>
-                </td>
-                </tr>
-                </table>
-                <?php } ?>
-            
-        </div>
     <script src="js/profile.js"></script>
 </body>
 </html>

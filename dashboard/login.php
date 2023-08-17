@@ -7,28 +7,29 @@
     <title>Login</title>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/login.css">
-
+    <?php session_start(); ?>
 </head>
 <body>
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-            <form class="sign-in-form">
+            <form action="loginb.php" method="post" class="sign-in-form">
                 <div class="logo-container">
                     <img src="images/Weeho.png" alt="Your Logo">
                 </div>
                 <h2 class="title">Login</h2>
+                <span style="color:red"><?php if(isset($_SESSION["message"])){ echo $_SESSION["message"]; } unset($_SESSION["message"]); ?> </span>
                 <div class="input-field">
                     <i class='bx bxs-envelope'></i>
-                    <input type="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email">
                 </div>
                 <div class="input-field">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 <div class="input-field">
                     <i class='bx bxs-phone'></i>
-                    <input type="tel" placeholder="Phone Number">
+                    <input type="tel" name="phone" placeholder="Phone Number">
                 </div><br>
                 <div class="forgot-password-link">
                     <a href="forget.php" class="forgot-password-link">Forgot Password?</a>
@@ -41,26 +42,30 @@
                     </a>
                 </div>
             </form>
-            <form class="sign-up-form">
+            <form action="loginb.php" method="post" class="sign-up-form">
                 <div class="logo-container">
                     <img src="images/Weeho.png" alt="Your Logo">
                 </div>
                 <h2 class="title">Create your account</h2>
                 <div class="input-field">
                     <i class='bx bxs-user'></i>
-                    <input type="text" placeholder="Name">
+                    <input type="text" name="name" placeholder="Name">
                 </div>
                 <div class="input-field">
                     <i class='bx bxs-envelope'></i>
-                    <input type="email" placeholder="Email">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="input-field">
+                    <i class='bx bxs-phone'></i>
+                    <input type="tel" name="phone" placeholder="Phone">
                 </div>
                 <div class="input-field">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 <div class="input-field">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" placeholder="Confirm Password">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password">
                 </div>                
                 <input type="submit" value="Sign Up" class="btn solid">
             </form>
