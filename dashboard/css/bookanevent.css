@@ -1,52 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body {
-  background-image: url("images/backGimg.jpg");
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, label, input, select {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
+/* Basic styling for the container */
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.logo-container {
-  text-align: center; /* Center the logo horizontally */
-  margin-bottom: 20px; /* Add some space between the logo and the form */
-}
-
-.logo-container img {
-  max-width: 150px; /* Set a maximum width for the logo image */
-  height: auto; /* Maintain the aspect ratio of the logo */
-}
-
-.forms {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 90%;
+  min-height: 70vh;
+  background-color: #f4f4f4;
+}
+
+/* Styling for the form */
+.form {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 200%;
+  overflow: center;
+  margin: center;
 }
 
 .form-content {
-  width: 550px;
-  padding: 30px;
-  border-radius: 9px;
-  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-container img {
+  max-width: 100px;
 }
 
 header {
-  font-size: 28px;
-  font-weight: 600;
-  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -55,41 +60,69 @@ header {
   margin-bottom: 20px;
 }
 
-label {
+.form-group label {
   display: block;
-  font-weight: 500;
-  margin-bottom: 6px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .form-control {
   width: 100%;
-  height: 40px;
-  padding: 8px;
-  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  border: 1px solid #cccccc;
+  transition: border-color 0.3s;
 }
 
-button[type="submit"] {
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #ffffff;
-  background-color: #aa1818;
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.button-field {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #000000;
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
-.sub-menu {
+/* Style the select dropdown arrow */
+.form-control::-ms-expand {
   display: none;
 }
 
-.show {
-  display: block;
+.form-control::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Add some spacing between the select options */
+.form-control option {
+  padding: 10px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .container {
+      padding: 20px;
+  }
+
+  .form {
+      width: 100%;
+  }
 }
