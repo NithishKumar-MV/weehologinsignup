@@ -1,0 +1,120 @@
+:root {
+    --main-bg-color: #9b0000;
+    --main-text-color: #ad1e01;
+    --second-text-color: #ffffff;
+    --second-bg-color: #ff9090;
+} 
+
+body {
+    background-image: url(../images/dashbackGimg.jpg); /* Check if this path is correct */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 1px;
+}
+
+.primary-text {
+    color: var(--main-text-color);
+}
+
+.whitebg {
+    height: 810px;
+    background-color: rgba(var(--bs-white-rgb), 1)!important;
+    padding: 15px; /* Add padding for better spacing */
+}
+
+.second-text {
+    color: var(--second-text-color);
+}
+
+a {
+    display: block; /* Convert link into a block for better spacing */
+    margin-top: 20px;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.primary-bg {
+    background-color: var(--main-bg-color);
+}
+
+#mleft {
+    margin-left: 20px;
+}
+
+#mright {
+    padding: 10px;
+}
+
+.secondary-bg {
+    background-color: var(--second-bg-color);
+}
+
+.dashboard-heading {
+    color: white;
+}
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    display: flex; /* Make sure the wrapper is a flex container */
+}
+
+#sidebar-wrapper {
+    min-width: 15rem; /* Set a fixed width for the sidebar */
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+    flex: 1; /* Allow the content to take remaining space */
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    padding: 10px; /* Adjust padding for better spacing */
+    margin: 5px 0; /* Adjust margin for better spacing */
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: azure;
+}
+
+.list-group-item i {
+    margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
