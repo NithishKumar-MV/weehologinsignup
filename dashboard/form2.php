@@ -19,8 +19,9 @@ $phone = $_REQUEST['phone'];
 $email = $_REQUEST['email'];
 $city = $_REQUEST['city'];
 $date = $_REQUEST['date'];
+$time = $_REQUEST['time'];
 
-$sql ="INSERT INTO `book_an_events`(`name`, `phone_number`, `email`, `city`, `date_events`,`occasion`,`user_email`) VALUES ('$name','$phone','$email','$city','$date','$occasion','".$_SESSION["email"] ."')";
+$sql ="INSERT INTO `book_an_events`(`name`, `phone_number`, `email`, `city`, `date_events`,`occasion`,`Time`,`user_email`) VALUES ('$name','$phone','$email','$city','$date','$occasion','$time','".$_SESSION["email"] ."')";
 if (mysqli_query($conn, $sql)) {
     header("Location: ./dashboard.php");
 }

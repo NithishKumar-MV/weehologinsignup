@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="css/profile.css">
     <title>Weeho Dashboard</title>
     <?php session_start(); ?>
+    <?php include("conn.php"); ?>
     <?php  include("events.php"); ?>
+    <style>
+      .alb{
+            width: 50px;
+			      height: 50px;
+			      padding: 5px;
+			      border-radius: 50%;
+        }
+        .alb img {
+			      width: 100%;
+			      height: 100%;
+			      border-radius: 50%;
+		    }
+    </style>
 </head>
 <body onload="load()">
     <div class="d-flex" id="wrapper">
@@ -23,10 +37,10 @@
       <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark active" onclick="toggleDropdown('eventDropdown')">
         <i class="fas fa-tachometer-alt me-2"></i> Dashboard
       </a>
-      <a href="form2.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
+      <a href="bookanevent.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
         <i class="fas fa-calendar-plus me-2"></i> Book an Event
       </a>
-      <a href="#" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
+      <a href="createanevent.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
         <i class="fas fa-calendar-plus me-2"></i>Create an Event
       </a>
       <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
@@ -60,7 +74,7 @@
                                 ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><button class="dropdown-item fw-bold" onclick="openpopup()"><i class="fas fa-user"></i> Profile</button></li>
+                                <li><button class="dropdown-item fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user"></i> Profile</button></li>
                                 <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-cog"></i> Settings</a></li>
                                 <li><a href="logout.php" class="dropdown-item fw-bold"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 
@@ -118,44 +132,38 @@
         </div>
     </div>
     
-    <?php//profile popup?>
-    <div class="popup" id="popup">
-            <img src="images/backGimg.jpg">
-            <table>
-                <tr>
-                    <td>
-                        name:     
-                    </td>
-                    <td>
-                        shahid ali
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        email:
-                    </td>
-                    <td>
-                        asd@hkasd.com
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        phone:
-                    </td>
-                    <td>
-                        123456789
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        city:
-                    </td>
-                    <td>
-                        asdas
-                    </td>
-                </tr>
-            </table>
+    <!-- profile modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+    
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="modal-title ">
+                    <?php  
+                        $result = mysqli_query($conn,"SELECT * FROM login_user WHERE email='" . $_SESSION["name"] . "'");
+                        $row  = mysqli_fetch_assoc($result);   
+                    ?>
+                </div>
+                <div class="field input-field">
+                <span>Name: <?php if(isset($_SESSION["name"])) echo $_SESSION["name"]; else header("Location:login.php")?></span>
+              </div>
+              
+              <div class="field input-field">
+                <span>Email: <?php echo $_SESSION["email"]; ?></span>
+              </div>
+  
+              <div class="field input-field">
+                <span>Phone: <?php echo $_SESSION["phone"]; ?></span>
+              </div>
+  
+              <div class="field input-field">
+                <span>City: <?php echo $_SESSION["city"]; ?></span>
+              </div>
+                
+            </div>
+        </div>
     </div>
+</div>
 
     <?php //  animated counter ?> 
     <script>
