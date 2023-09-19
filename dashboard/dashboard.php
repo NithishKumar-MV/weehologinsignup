@@ -5,27 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <title>Weeho Dashboard</title>
     <?php session_start(); ?>
-    <?php include("conn.php"); ?>
     <?php  include("events.php"); ?>
-    <style>
-      .alb{
-            width: 50px;
-			      height: 50px;
-			      padding: 5px;
-			      border-radius: 50%;
-        }
-        .alb img {
-			      width: 100%;
-			      height: 100%;
-			      border-radius: 50%;
-		    }
-    </style>
 </head>
-<body onload="load()">
+<body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar starts here -->
 <div class="whitebg">
@@ -37,10 +22,10 @@
       <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark active" onclick="toggleDropdown('eventDropdown')">
         <i class="fas fa-tachometer-alt me-2"></i> Dashboard
       </a>
-      <a href="bookanevent.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
+      <a href="form2.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
         <i class="fas fa-calendar-plus me-2"></i> Book an Event
       </a>
-      <a href="createanevent.html" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
+      <a href="#" class="list-group-item list-group-item-action bg-transparent text-primary fw-bold">
         <i class="fas fa-calendar-plus me-2"></i>Create an Event
       </a>
       <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
@@ -59,29 +44,22 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item-dropitem">
+                        <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle second-text fw-bold" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>
-                                <?php
-                                    if(isset($_SESSION["name"])) {
-                                ?>
-                                    <?php echo $_SESSION["name"]; ?>
-                                <?php
-                                    }else header("Location:login.php");
-                                ?>
+                                <i class="fas fa-user me-2"></i> User
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><button class="dropdown-item fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user"></i> Profile</button></li>
+                                <li><button class="dropdown-item fw-bold" onclick="openpopup()"><i class="fas fa-user"></i> Profile</button></li>
                                 <li><a href="#" class="dropdown-item fw-bold"><i class="fas fa-cog"></i> Settings</a></li>
                                 <li><a href="logout.php" class="dropdown-item fw-bold"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 
                             </ul>
                         </li>
                     </ul>
-                </div>                
+                </div>
             </nav>
 
             <div class="container-fluid px-4">
@@ -132,57 +110,53 @@
         </div>
     </div>
     
-    <!-- profile modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-    
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="modal-title ">
-                    <?php  
-                        $result = mysqli_query($conn,"SELECT * FROM login_user WHERE email='" . $_SESSION["name"] . "'");
-                        $row  = mysqli_fetch_assoc($result);   
-                    ?>
-                </div>
-                <div class="field input-field">
-                <span>Name: <?php if(isset($_SESSION["name"])) echo $_SESSION["name"]; else header("Location:login.php")?></span>
-              </div>
-              
-              <div class="field input-field">
-                <span>Email: <?php echo $_SESSION["email"]; ?></span>
-              </div>
-  
-              <div class="field input-field">
-                <span>Phone: <?php echo $_SESSION["phone"]; ?></span>
-              </div>
-  
-              <div class="field input-field">
-                <span>City: <?php echo $_SESSION["city"]; ?></span>
-              </div>
-                
-            </div>
-        </div>
+    <?php//profile popup?>
+    <div class="popup" id="popup">
+            <img src="images/backGimg.jpg">
+            <table>
+                <tr>
+                    <td>
+                        name:     
+                    </td>
+                    <td>
+                        shahid ali
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        email:
+                    </td>
+                    <td>
+                        asd@hkasd.com
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        phone:
+                    </td>
+                    <td>
+                        123456789
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        city:
+                    </td>
+                    <td>
+                        asdas
+                    </td>
+                </tr>
+            </table>
     </div>
-</div>
 
     <?php //  animated counter ?> 
     <script>
-        
-        let text1 = document.getElementById('0101');
-        let text2 = document.getElementById('0102');
-        let text3 = document.getElementById('0103');
-        let text4 = document.getElementById('0104');
-        const load = () => {
-           animate(text1, 0,<?php  echo $total_events->total_events; ?>, 1000);
-           animate(text2, 0,<?php echo $Total_Events_in_this_Month->Total_Events_in_this_Month; ?>, 1000);
-           animate(text3, 0,<?php echo $Completed_Events->Completed_Events; ?>, 1000);
-           animate(text4, 0,<?php echo $Pending_Events->Pending_Events; ?>, 1000);         
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            if (dropdown) {
+                dropdown.classList.toggle('show');
+            }
         }
-     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/profile.js"></script>
-
+    </script>
 </body>
 </html>

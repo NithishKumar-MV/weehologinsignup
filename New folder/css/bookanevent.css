@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -7,30 +7,22 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Reset some default styles */
-body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, label, input, select {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-/* Basic styling for the container */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  min-height: 100vh; /* Changed to 100vh for better centering */
   background-color: #f4f4f4;
 }
 
-/* Styling for the form */
 .form {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 200%;
-  overflow: center;
-  margin: center;
+  width: 100%; /* Change this to 100% */
+  max-width: 400px; /* Add max-width to control form width */
+  padding: 20px; /* Add padding to space out form from edges */
+  /* Other form styling */
 }
 
 .form-content {

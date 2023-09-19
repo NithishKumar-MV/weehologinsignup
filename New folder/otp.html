@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP verification code through email</title>
+    <link rel="stylesheet" href="css/otp.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="images/Weeho.png" alt="Your Logo">
+        </div>
+        <header><i class="bx bxs-check-shield"></i></header>
+        <h2>Enter OTP Code</h2>
+        <form action="#" id="otpForm">
+            <div class="input-field">
+                <label for="input1"></label>
+                <input type="number" id="input1" maxlength="1" onkeyup="moveToNext(this, 'input2')" />
+            
+                <label for="input2"></label>
+                <input type="number" id="input2" maxlength="1" onkeyup="moveToNext(this, 'input3')" disabled />
+            
+                <label for="input3"></label>
+                <input type="number" id="input3" maxlength="1" onkeyup="moveToNext(this, 'input4')" disabled />
+            
+                <label for="input4"></label>
+                <input type="number" id="input4" maxlength="1" onkeyup="moveToNext(this, 'input4')" disabled />
+
+                <label for="input5"></label>
+                <input type="number" id="input5" maxlength="1" onkeyup="moveToNext(this, 'input4')" disabled />
+
+                <label for="input6"></label>
+                <input type="number" id="input6" maxlength="1" onkeyup="moveToNext(this, 'input4')" disabled />
+            </div><br>
+            <input type="submit" class="btn solid" value="Verify OTP">
+            <div class="resend-otp-link">
+                <a href="forgetpass.html" class="resend-otp-link">Resend OTP</a>
+            </div>
+        </form>
+    </div>
+    <script src="js/otp.js"></script>
+</body>
+</html>
