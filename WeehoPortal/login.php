@@ -1,45 +1,31 @@
-<!-- <?php
-// include("db_connect.php");
-
-// $email = $_POST['email'];
-// $password = $_POST['password'];
-
-// $sql = "SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password'";
-// $result = $conn->query($sql);
-
-// if ($result->num_rows == 1) {
-//     $row = $result->fetch_assoc();
-//     if (password_verify($password, $row['password'])) {
-//         echo "Login successful";
-//     } else {
-//         echo "Invalid password";
-//     }
-// } else {
-//     echo "User not found";
-// }
-
-// $conn->close();
-?> -->
 <?php
-//session_start(); // Start a session to manage user authentication
- include("db_connect.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    echo "hii..";
-    $sql = "SELECT * FROM `users` WHERE `email` ='$email' AND `password`='$password'";
-    echo "yes ";
+// Assuming your database connection is in db_connect.php
+include("db_connect.php");
+
+// Get the posted data
+$data = json_decode(file_get_contents("php://input"));
+
+// Initialize the response array
+$response = array('success' => false);
+
+// Perform authentication against the database
+if ($data && !empty($data->emailOrPhone) && !empty($data->password)) {
+    $emailOrPhone = $conn->real_escape_string($data->emailOrPhone);
+    $password = $conn->real_escape_string($data->password);
+
+    $sql = "SELECT * FROM `users` WHERE `email` ='$emailOrPhone' AND `password`='$password'";
     $result = $conn->query($sql);
-    echo "no";
-    if ($result->num_rows == 1) {        
-       // echo"login sucessful";
-        // User is authenticated
-       // $_SESSION["email"] = $email;
-       header("Location: bookanevent.html");// Redirect to the dashboard page
-    } else {
-        // Invalid login
-        $error_message = "Invalid email or password";
-        echo $error_message;
+
+    if ($result->num_rows > 0) {
+        // Authentication successful
+        $response['success'] = true;
     }
 }
+
+// Close the database connection
+$conn->close();
+
+// Send the JSON response
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>

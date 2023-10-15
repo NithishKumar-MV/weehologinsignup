@@ -29,8 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
                 if (xhr.status == 200) {
-                    // Request was successful, handle the response (if any)
-                    alert(xhr.responseText); // This will display the response from PHP
+                    if (xhr.responseText === 'user all ready exist') {
+                        alert('User already exists. Please use a different email.');
+                    } else {
+                        window.location.href = 'bookanevent.html'; // Redirect on successful signup
+                    }
                 } else {
                     // Request failed
                     alert('Error: ' + xhr.status);

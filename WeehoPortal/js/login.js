@@ -13,9 +13,28 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Here, you would typically send this data to your server for authentication
-        // For this example, let's assume the authentication is successful
-
-        alert('Login successful!'); // Replace this with your actual authentication logic
+        // Send data to PHP script using Fetch API
+        fetch('login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                emailOrPhone: emailOrPhone,
+                password: password,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = 'bookanevent.html';
+            } else {
+                alert('Login failed. Incorrect email and password.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        });
     });
 });

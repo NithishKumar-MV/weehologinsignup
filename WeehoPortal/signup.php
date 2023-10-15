@@ -13,7 +13,7 @@ $row=mysqli_num_rows($result);
 if($row==0){
 
     // Insert data into the database
-    $sql = "INSERT INTO `users`(`name`,`tel`,`email`,`password`) VALUES ('$name','$tel','$email','$password')";
+    $sql = "INSERT INTO `users`(`name`,`phone_number`,`email`,`password`) VALUES ('$name','$tel','$email','$password')";
 
     if($conn->query($sql) === TRUE) {
         echo "New record created successfully";
@@ -21,10 +21,10 @@ if($row==0){
         echo "Error: " . $sql . "<br>" . $conn->error;
     }}  
     else{
-            echo "try again";   
+            echo "user all ready exist";   
     }
 }else{
-    echo "user all ready exist";
+    echo "User already exists";
 }
 
 $conn->close();
